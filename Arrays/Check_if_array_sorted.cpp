@@ -5,7 +5,8 @@
 // Space: O(1)
 
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     bool check(vector<int>& nums) {
