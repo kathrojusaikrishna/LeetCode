@@ -4,22 +4,33 @@
 // Time: O(n)
 // Space: O(1)
 
+
 class Solution {
 public:
-    int dfs(TreeNode* root, int curr){
-        if(!root)return 0;
 
-        curr = curr*2 + root->val;
+    void solve(TreeNode* root, int currVal, int &ans){
+        if(!root)return;
+
+        currVal = currVal*10+root->val;
 
         if(!root->left && !root->right){
-            return curr;
+            ans+=currVal;
+            currVal/=10;
+            return;
         }
 
-        return dfs(root->left,curr) + dfs(root->right,curr);
-    }
-    int sumRootToLeaf(TreeNode* root) {
+        solve(root->left,currVal,ans);
+        solve(root->right,currVal,ans);
         
-        int ans = dfs(root,0);
+    }
+
+    int sumNumbers(TreeNode* root) {
+
+        int ans=0;
+        if(!root)return ans;
+
+        solve(root, 0,ans);
+
         return ans;
     }
 };
