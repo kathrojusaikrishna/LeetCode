@@ -1,0 +1,30 @@
+// Problem: Valid Parenthesis
+// Difficulty: Easy
+// Platform: Leetcode
+// Approach: using stacks
+// Time: O(n)
+// Space: O(n)
+
+class Solution {
+public:
+    bool isValid(string s) {
+
+       stack<char>st;
+
+       for(auto& ch :s){
+        if(ch=='{' || ch=='[' || ch=='(')st.push(ch);
+        else{
+
+            if(st.empty())return false;
+            char top = st.top();
+            st.pop();
+
+            if(ch==')' && top!='(')return false;
+            if(ch==']' && top!= '[')return false;
+            if(ch=='}' && top!='{')return false;
+        }
+       }
+
+       return st.size()==0;
+    }
+};
