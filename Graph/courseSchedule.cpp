@@ -3,7 +3,7 @@
 //platform: Leetcode
 // Approach: connected components + cycle detection
 // Time: O(V(V+E))
-// Space: O(1)
+// Space: O(V)
 
 class Solution {
 public:
