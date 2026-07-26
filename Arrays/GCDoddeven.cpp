@@ -7,7 +7,7 @@
 class Solution {
 public:
     int gcd(int a, int b){
-        while( a>0 && b>0){
+        while(a>0 && b>0){
             if(a > b)a = a%b;
             else b= b%a;
         }
@@ -17,6 +17,7 @@ public:
     }
     int gcdOfOddEvenSums(int n) {
 
+        
         int oddSum = n*n;
         int evenSum = n*(n+1);
 
