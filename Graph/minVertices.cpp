@@ -11,6 +11,7 @@ public:
         
         vector<int>ans;
         vector<int>indegree(n,0);
+\]
 
         for(auto& e : edges){
             int u = e[0];
