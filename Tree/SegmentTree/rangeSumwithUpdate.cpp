@@ -1,5 +1,6 @@
 // Problem: Range sum with update
 // Difficulty: Medium
+// Platform: Geeksforgeeks
 // Approach: Segment tree
 // Time: O(n+q.log(n))
 // Space: O(n)
