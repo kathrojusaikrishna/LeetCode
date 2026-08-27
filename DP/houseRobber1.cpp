@@ -3,7 +3,7 @@
 //platform: Leetcode
 // Approach: DP
 // Time: O(n)
-// Space: O(1) 
+// Space: O(1)
 
 class Solution{
 public:
