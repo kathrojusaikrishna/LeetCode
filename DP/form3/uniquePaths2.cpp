@@ -9,25 +9,32 @@ class Solution {
 public:
     vector<vector<int>>dp;
     const int MOD = 2*1e9;
+    int solve(int i, int j, vector<vector<int>>& grid){
+        //pruning
+        if(i<0 || i>= grid.size() || j<0 || j>= grid[0].size())return 0;
+        if(grid[i][j]==1)return 0;
 
-    int solve(int i, int j, int m, int n){
-        if(i<0 || i>=m || j<0 || j>=n)return 0;
         //base case
-        if(i==m-1 && j==n-1)return 1;
+        if(i==grid.size()-1 && j==grid[0].size()-1)return 1;
 
+        //cache
         if(dp[i][j]!=-1){
             return dp[i][j];
         }
-        int ans =0;
+        //compute
+        int ans=0;
+        ans += (solve(i+1,j,grid))%MOD;
+        ans += (solve(i,j+1,grid))%MOD;
 
-        ans += (solve(i+1,j,m,n))%MOD;
-        ans += (solve(i,j+1,m,n))%MOD;
-
+        //save and return
         return dp[i][j] = ans;
     }
-    int uniquePaths(int m, int n) {
-        dp.assign(m,vector<int>(n,-1));
+    int uniquePathsWithObstacles(vector<vector<int>>& grid) {
+        int n = grid.size();
+        int m = grid[0].size();
 
-        return solve(0,0,m,n);
+        dp.assign(n,vector<int>(m,-1));
+
+        return solve(0,0,grid);
     }
 };
