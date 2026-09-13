@@ -2,7 +2,7 @@
 // Difficulty: Medium
 //platform: Leetcode
 // Approach: using DP
-// Time: O(n*n)
+// Time: O(n*logn)
 // Space: O(n) -> for dp
 
 class Solution {
@@ -40,5 +40,27 @@ public:
             best = max(best,solve(i,nums,n));
         }
         return best;
+    }
+};
+
+
+class Solution{
+public:
+    int lengthOfLIS(vector<int>& nums){
+
+        int n = nums.size();
+        vector<int>lis;
+
+        for(int i=0;i<n;i++){
+            if(lis.empty() || lis.back()<nums[i]){
+                lis.push_back(nums[i]);
+            }else{
+                auto it = lower_bound(lis.begin(), lis.end(), nums[i]);
+
+                *it = nums[i];
+            }
+        }
+
+        return lis.size();
     }
 };
