@@ -1,8 +1,8 @@
-// Problem: Jump game 2
+// Problem: Jump game 6
 // Difficulty: Medium
 //platform: Leetcode
 // Approach: DP
-// Time: O(n*max(nums))
+// Time: O(n)
 // Space: O(n)
 
 
