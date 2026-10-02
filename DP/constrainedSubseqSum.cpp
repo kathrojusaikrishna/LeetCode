@@ -1,30 +1,36 @@
+// Problem: Constrained subsequence sum
+// Difficulty: Hard
+//platform: Leetcode
+// Approach: DP
+// Time: O(n)
+// Space: O(n)
+
 class Solution {
 public:
-    int maxResult(vector<int>& nums, int k) {
+    int constrainedSubsetSum(vector<int>& nums, int k) {
         
+
         int n = nums.size();
         vector<int>dp(n);
         deque<int>dq;
-        dq.push_back(0);
-
         dp[0] = nums[0];
-
+        dq.push_back(0);
 
         for(int i=1;i<n;i++){
 
             while(!dq.empty() && dq.front() <i-k){
                 dq.pop_front();
             }
-            dp[i] = nums[i] + dp[dq.front()];
+
+            dp[i] = nums[i] + max(0,dp[dq.front()]);
 
             while(!dq.empty() && dp[dq.back()] <= dp[i]){
                 dq.pop_back();
             }
 
-
             dq.push_back(i);
         }
 
-        return dp[n-1];
+        return *max_element(dp.begin(),dp.end());
     }
 };
