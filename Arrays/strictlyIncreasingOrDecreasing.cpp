@@ -1,5 +1,6 @@
 // Problem: Longest Strictly Increasing or Strictly Decreasing Subarray
 // Difficulty: Easy
+// Platform: Leetcode
 // Approach: simple iteration
 // Time: O(n)
 // Space: O(1)
