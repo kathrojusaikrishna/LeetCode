@@ -1,7 +1,7 @@
 // Problem: Game of divisible sums
 // Difficulty: Medium
 //platform: Leetcode
-// Approach: DP
+// Approach: Game - DP
 // Time: O(n)
 // Space: O(n)
 
